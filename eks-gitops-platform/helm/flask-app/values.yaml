@@ -1,0 +1,15 @@
+replicaCount: 2
+
+image:
+  repository: PLACEHOLDER_ECR_REPO
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 5000
+
+env:
+  ENV: prod
+  APP_VERSION: v1
