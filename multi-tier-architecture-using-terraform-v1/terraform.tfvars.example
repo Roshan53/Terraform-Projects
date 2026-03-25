@@ -1,0 +1,4 @@
+aws_region    = "ap-south-1"
+project_name  = "three-tier"
+
+db_password   = "nottherealpassword"

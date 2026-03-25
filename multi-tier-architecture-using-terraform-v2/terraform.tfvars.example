@@ -1,0 +1,8 @@
+aws_region        = "ap-south-1"
+project_name      = "three-tier-advanced"
+db_password       = "samplepassword"
+instance_type     = "t3.micro"
+desired_capacity  = 2
+min_size          = 2
+max_size          = 4
+db_instance_class = "db.t3.micro"

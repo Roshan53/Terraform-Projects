@@ -1,0 +1,41 @@
+{
+  "family": "rosh-ecs-cicd-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::740055419877:role/rosh-ecs-cicd-ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::740055419877:role/rosh-ecs-cicd-ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "app",
+      "image": "740055419877.dkr.ecr.ap-south-1.amazonaws.com/rosh-ecs-cicd-repo",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 5000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "5000"
+        },
+        {
+          "name": "APP_VERSION",
+          "value": "initial"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/rosh-ecs-cicd",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}

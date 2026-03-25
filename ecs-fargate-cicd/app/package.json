@@ -1,0 +1,12 @@
+{
+  "name": "ecs-fargate-cicd-app",
+  "version": "1.0.0",
+  "description": "Dockerized Node.js app for ECS Fargate CI/CD",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
