@@ -50,6 +50,11 @@ jobs:
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER_NAME
 
+      - name: Verify cluster access
+        run: |
+          kubectl config current-context
+          kubectl get nodes
+
       - name: Replace image in deployment manifest
         run: sed -i "s|PLACEHOLDER_IMAGE|${{ steps.build-image.outputs.image }}|g" ./eks-terraform-cicd-app/k8s/deployment.yaml
 
