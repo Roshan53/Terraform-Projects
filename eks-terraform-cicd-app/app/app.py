@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return {
-        "message": "Hello from EKS using Terraform + Docker + GitHub Actions",
+        "message": "Hello from EKS CI/CD version 2",
         "environment": os.getenv("ENVIRONMENT", "dev")
     }
 
